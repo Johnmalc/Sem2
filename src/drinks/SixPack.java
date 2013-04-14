@@ -1,4 +1,4 @@
-package malcj;
+package drinks;
 
 public class SixPack<T extends Bottle> {
 	private T[] bottles = (T[]) new Object[6];

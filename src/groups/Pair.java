@@ -1,4 +1,4 @@
-package malcjohn;
+package groups;
 
 public class Pair<T, U> {
 

@@ -1,4 +1,4 @@
-package meinBeis;
+package meinBeispiel;
 
 public class Gen<T> {
 	public T name;
