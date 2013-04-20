@@ -13,7 +13,7 @@ public class Converter {
 	}
 
 	public double convertBtoA(double amount) {
-		return rateAB / amount;
+		return amount / rateAB;
 	}
-
+	
 }
