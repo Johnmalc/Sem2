@@ -1,4 +1,4 @@
-package meinBeispiel;
+package meinBeispielGenerics;
 
 public class Tets {
 
