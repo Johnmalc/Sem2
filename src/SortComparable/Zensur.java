@@ -12,15 +12,13 @@ public class Zensur {
 
 		SortedSet<String> words = new TreeSet<String>();
 
-		words.add("fröhlich");
+		words.add("frohlich");
 		words.add("friede");
 		words.add("affe");
 		words.add("gut");
 
 		System.out.println(words);
-
 		words.subSet("f", "g").clear();
-
 		System.out.println(words);
 	}
 
