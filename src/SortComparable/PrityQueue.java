@@ -14,7 +14,7 @@ public class PrityQueue {
 		d.add(1);
 		d.add(3);
 		d.add(9);
-		System.out.println(d.toString());
+		System.out.println(d);
 	}
 
 }

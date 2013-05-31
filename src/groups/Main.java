@@ -12,7 +12,11 @@ public class Main {
 		System.out.println(p1.getOne());
 		System.out.println(p1.getTwo());
 
-		Pair p2 = new Pair<String, String>("a", "b");// Zuweisung zum Raw-Type
+		Pair p2 = new Pair<String, String>("a", "b");
+		System.out.println(p2.equals(p1));
+		
+		
+		// Zuweisung zum Raw-Type
 														// möglich! Aber
 														// gefährlich!
 		p2.setOne(12);// Jetzt kann ich über die Raw-Type-Variable ein int
