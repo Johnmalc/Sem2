@@ -1,4 +1,4 @@
-package mspf03;
+package msfp03;
 
 public class Converter {
 

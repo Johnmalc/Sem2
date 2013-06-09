@@ -1,4 +1,4 @@
-package mspf03;
+package msfp03;
 
 public interface EURDMConverter {
 	public double convertEUR2DM(double amount);
