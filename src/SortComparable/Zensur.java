@@ -1,7 +1,6 @@
 package SortComparable;
 
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Zensur {
 

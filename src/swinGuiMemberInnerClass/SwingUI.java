@@ -1,9 +1,7 @@
 package swinGuiMemberInnerClass;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.*;
 
 public class SwingUI {
@@ -26,7 +24,7 @@ public class SwingUI {
 		frame.setVisible(true);
 	}
 
-	public class MyListener implements ActionListener {
+	class MyListener implements ActionListener {
 		int counter;
 
 		public void actionPerformed(ActionEvent e) {
@@ -35,5 +33,4 @@ public class SwingUI {
 					+ SwingUI.this.counter);
 		}
 	}
-
 }
