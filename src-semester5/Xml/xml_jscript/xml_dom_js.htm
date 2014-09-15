@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Suche nach Elementen im XML Document</title>
+<style type="text/css">  
+   BODY  {font-family:Tahoma,Verdana,Arial,sans-serif; font-size:12px; font-weight:normal}
+   .einf {font-family:Tahoma,Verdana,Arial,sans-serif; font-size:14px; font-weight:bold} 
+</style>
+
+<XML ID="Buecher" SRC="Buecher_js.xml"></XML>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+function getAuthorName(welcher) {
+   // Reference zum XML document
+   nodeXMLDoc = document.all("Buecher").XMLDocument;
+
+   nodeBookList = nodeXMLDoc.firstChild.nextSibling;
+   nodeBook = nodeBookList.firstChild;
+   nodeAuthList = nodeBook.firstChild.nextSibling.nextSibling;
+   if (welcher == 1)
+      nodeAuthor = nodeAuthList.firstChild;
+    else
+      nodeAuthor = nodeAuthList.lastChild;
+   mapStatus = nodeAuthor.attributes;
+   attrStatus = mapStatus.getNamedItem("Status");
+   strStatus = attrStatus.value;
+   nodeFirstName = nodeAuthor.firstChild;
+   nodeLastName = nodeFirstName.nextSibling;
+   strName = nodeFirstName.firstChild.nodeValue + ' ' 
+           + nodeLastName.firstChild.nodeValue;
+   if (welcher == 1) { 
+      strMessage = 'Angaben zum ersten Autor sind:\n\nName: ' 
+                 + strName + '\nStatus: ' + strStatus
+   } else {
+      strMessage = 'Angaben zum zweiten Autor sind:\n\nName: ' 
+                 + strName + '\nStatus: ' + strStatus
+   }   
+   alert(strMessage);
+}  
+
+//-->
+</SCRIPT>
+
+</head>
+<body BGCOLOR="#FFFFFF">
+<SPAN CLASS=einf>Suche nach Elementen im XML Document</SPAN><P>
+
+<B>&nbsp; &nbsp; &nbsp;
+<INPUT TYPE="BUTTON" VALUE="&nbsp; &nbsp; &nbsp;" ONCLICK="getAuthorName(1)">
+&nbsp;Details des ersten Autors anzeigen<P>&nbsp; &nbsp; &nbsp;
+<INPUT TYPE="BUTTON" VALUE="&nbsp; &nbsp; &nbsp;" ONCLICK="getAuthorName(2)">
+&nbsp;Details des zweiten Autors anzeigen<P>&nbsp; &nbsp; &nbsp;
+<INPUT TYPE="BUTTON" VALUE="&nbsp; &nbsp; &nbsp;" ONCLICK="location.href='buecher_js.xml'">
+&nbsp;Anzeige der XML-Datei
+</B><P>
+
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>XML Data Scripting auf Browser-Seite</title>
+<style type="text/css">  
+BODY {font-family:Arial,sans-serif; font-size:12px; font-weight:normal}
+.intro {font-family:Tahoma,Verdana,Arial,sans-serif; font-size:14px; font-weight:bold} 
+</style>
+
+<XML ID="dsoBuecher" SRC="Buecher.xml"></XML>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function showBooks() {
+  strCriteria = document.forms[0].txtCriteria.value.toLowerCase();
+  objListBox = document.forms[0].selListBox;
+  objListBox.options.length = 0;
+  recBooks = dsoBuecher.recordset;  // die XML Datensaetze
+  recBooks.MoveFirst();
+  while (!recBooks.EOF) {
+    strTitle = '' + recBooks("Titel");
+    strTitle = strTitle.toLowerCase();
+    if (strTitle.indexOf(strCriteria) >= 0) {
+      objListBox.options.length += 1;
+      objListBox.options[objListBox.options.length - 1].text = recBooks("Titel");
+    }
+    recBooks.MoveNext();   
+  }
+};
+//-->
+</SCRIPT>
+
+</head>
+<body BGCOLOR="#FFFFFF">
+<SPAN CLASS=intro>XML Data Scripting auf Browser-Seite</SPAN><P>
+
+<FORM>
+ Gebiet: <INPUT TYPE="TEXT" NAME="txtCriteria"> &nbsp;
+ <INPUT TYPE="BUTTON" VALUE="Zeige" ONCLICK="showBooks()"><P>
+ <SELECT NAME="selListBox" SIZE="4">
+  <OPTION>Bitte ein Suchwort fuer den Titel eingeben und dann 'Zeige' klicken ...
+ </SELECT>
+</FORM>
+
+</body>
+</html>
+

@@ -1,0 +1,2 @@
+call setpaths
+java -cp .;%JINIHOME%\lib\jini-examples.jar -Djava.security.policy=policy.all -Djava.rmi.server.codebase=http://%DOWNLOADHOST%/jini-examples-dl.jar com.sun.jini.example.browser.Browser -admin

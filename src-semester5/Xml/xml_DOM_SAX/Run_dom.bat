@@ -1,0 +1,1 @@
+java -classpath bin DOM_Example %1%

@@ -1,0 +1,2 @@
+call setpaths
+java -jar -Djava.security.policy=policy.all %JINIHOME%\lib\reggie.jar http://%DOWNLOADHOST%/reggie-dl.jar policy.all %JINITEMP%\reggie_log SDS_app -Dnet.jini.discovery.interface=%ADAPTERIP%

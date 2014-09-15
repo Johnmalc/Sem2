@@ -1,0 +1,4 @@
+set JINIHOME=d:\jini1_1
+set DOWNLOADHOST=ammann:8080
+set ADAPTERIP=134.103.192.6
+set JINITEMP=d:\temp

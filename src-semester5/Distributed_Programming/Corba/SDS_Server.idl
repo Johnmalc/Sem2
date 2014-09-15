@@ -1,0 +1,13 @@
+
+  interface SDS_Server {
+
+    struct Reply { 
+      long status;
+      string name;
+      string vorname;
+      long personalnummer;
+      string wohnort;
+    };
+
+    Reply investigate(in string name);
+  };

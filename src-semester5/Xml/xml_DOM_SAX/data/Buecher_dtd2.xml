@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE Buecher SYSTEM "Buecher.dtd">
+
+<Buecher>
+   <Buch Ausgabe ="Gebunden">
+      <Bestellnummer>13-031</Bestellnummer>
+      <Gebiet>HTML</Gebiet>
+      <Erschienen>2004-09-06</Erschienen>
+      <Verkaufszahlen>12785</Verkaufszahlen>
+      <Titel>HTML Einstieg</Titel>
+   </Buch>
+</Buecher>

@@ -1,0 +1,36 @@
+<HTML>
+<HEAD>
+<TITLE>XML - Tabular Record Binding</TITLE>
+<style type="text/css">  
+BODY, TD {font-family:Arial,sans-serif; font-size:12px; font-weight:normal}
+TH {font-family:Arial,sans-serif; font-size:12px; font-weight:bold; text-align:left}
+.intro {font-family:Tahoma,Verdana,Arial,sans-serif; font-size:14px; font-weight:bold} 
+</style>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<SPAN CLASS=intro>XML Tabellen-Record-Bindung (IE)</SPAN><P>
+
+<XML ID="dsoBuecher" SRC="Buecher.xml"></XML>
+
+<TABLE DATASRC="#dsoBuecher" CELLSPACING=10>
+ <THEAD>
+  <TR>   
+   <TH>Bestellnummer</TH>
+   <TH>Gebiet</TH>
+   <TH>Erschienen</TH>
+   <TH>Titel</TH>
+   <TH>Verkaufszahlen</TH>
+  </TR>
+ </THEAD>
+ <TBODY>
+  <TR>   
+   <TD><SPAN DATAFLD="Bestellnummer"></SPAN></TD>
+   <TD><SPAN DATAFLD="Gebiet"></SPAN></TD>
+   <TD><SPAN DATAFLD="Erschienen"></SPAN></TD>
+   <TD><B><SPAN DATAFLD="Titel"></B></SPAN></TD>
+   <TD><SPAN DATAFLD="Verkaufszahlen"></SPAN></TD>
+  </TR>   
+ </TBODY>
+</TABLE>
+</BODY>
+</HTML>

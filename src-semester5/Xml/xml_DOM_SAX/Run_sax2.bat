@@ -1,0 +1,1 @@
+java -classpath bin SAX_Example2 %1%

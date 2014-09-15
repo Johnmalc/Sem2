@@ -1,0 +1,1 @@
+java -cp build;%JBOSSCLIENT_PATH% EchoClient %1%

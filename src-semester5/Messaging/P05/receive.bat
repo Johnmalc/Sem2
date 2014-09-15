@@ -1,0 +1,1 @@
+java -cp build;%JBOSSCLIENT_PATH% Subscriber receive %1 %2 %3

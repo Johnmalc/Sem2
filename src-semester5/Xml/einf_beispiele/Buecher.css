@@ -1,0 +1,26 @@
+Buch           { display:block; margin:15px }
+
+Bestellnummer  { display:inline; 
+                 font-family:Tahoma,Arial,sans-serif; 
+                 color:darkgray; 
+                 font-size:12pt; 
+                 font-weight:bold }
+
+Gebiet         { display:inline; 
+                 font-family:Tahoma,Arial,sans-serif; 
+                 font-size:10pt; 
+                 font-weight:bold }
+
+Erschienen     { display:inline; 
+                 font-family:Tahoma,Arial,sans-serif; 
+                 color:red; 
+                 font-size:10pt }
+
+Titel          { display:inline; 
+                 font-family:Tahoma,Arial,sans-serif; 
+                 font-size:12pt; 
+                 color:white; 
+                 background-color:black }
+
+Verkaufszahlen { display:none }
+
