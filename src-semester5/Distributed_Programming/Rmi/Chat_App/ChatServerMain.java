@@ -1,15 +1,11 @@
+import java.rmi.Naming;
 
-import java.rmi.*;
-
-public class ChatServerMain
-{
-    public static void main(String[] args)
-    {
-        try
-        {
+public class ChatServerMain {
+    public static void main(String[] args) {
+        try {
             ChatServerImpl server = new ChatServerImpl();
             Naming.rebind("rmi://localhost/ChatServer", server);
+        } catch (Exception e) {
         }
-        catch(Exception e) {}
     }
 }

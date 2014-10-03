@@ -9,21 +9,22 @@ class Shared_Test_sync {
         int i;
         Shared_sync shared;
 
-        if (args.length != 1) { 
-           System.out.println("Syntaktisch falscher Aufruf des Programms");
-           System.exit(1);
+        if (args.length != 1) {
+            System.out.println("Syntaktisch falscher Aufruf des Programms");
+            System.exit(1);
         }
 
         shared = new Shared_sync(ANFANGSWERT);
 
-        for (i=0; i<(Integer.parseInt(args[0])/2); i++) {
-           (new Actor_sync(shared, 1)).start();
-           (new Actor_sync(shared, -1)).start();
+        for (i = 0; i < (Integer.parseInt(args[0]) / 2); i++) {
+            (new Actor_sync(shared, 1)).start();
+            (new Actor_sync(shared, -1)).start();
         }
 
         try {
-           Thread.sleep((int)20000);
-        } catch (InterruptedException e) {}
-       System.out.println("Endwert: " + shared.get_counter());
+            Thread.sleep((int) 20000);
+        } catch (InterruptedException e) {
+        }
+        System.out.println("Endwert: " + shared.get_counter());
     }
 }

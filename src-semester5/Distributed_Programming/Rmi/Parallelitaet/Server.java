@@ -1,16 +1,12 @@
+import java.rmi.Naming;
 
-import java.rmi.*;
-
-public class Server
-{
-    public static void main(String[] args)
-    {
-        try
-        {
+public class Server {
+    public static void main(String[] args) {
+        try {
             SleepImpl server;
             server = new SleepImpl();
             Naming.rebind("SleepServer", server);
+        } catch (Exception e) {
         }
-        catch(Exception e) {}
     }
 }

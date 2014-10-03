@@ -1,7 +1,7 @@
 /* Datei FIFOPuffer.java                E. Ammann      */
 /* Klasse fuer den Ringpuffer zur Benutzung durch      */
 /* Produzenten und Konsumenten                         */
- 
+
 class FIFOPuffer {
     private int in_index;
     private int out_index;
@@ -10,10 +10,10 @@ class FIFOPuffer {
 
     // Konstruktormethode dieser Klasse
     FIFOPuffer(int groesse) {
-       if (groesse < 2) groesse = 2;
-       this.groesse = groesse;
-       fifo = new int[groesse];
-       in_index = out_index = 0; 
+        if (groesse < 2) groesse = 2;
+        this.groesse = groesse;
+        fifo = new int[groesse];
+        in_index = out_index = 0;
     }
 
     // 'synchronized' Methoden
@@ -24,25 +24,27 @@ class FIFOPuffer {
         while (in_index == out_index) {
             try {
                 wait();
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
         }
         temp = fifo[out_index];
-        if (out_index == groesse -1) out_index = 0;
-                                else out_index++;
+        if (out_index == groesse - 1) out_index = 0;
+        else out_index++;
         notifyAll();
         return temp;
     }
 
     // Element in Puffer stellen
     public synchronized void einfuegen(int wert) {
-        while ((in_index + 1)%groesse == out_index) {
+        while ((in_index + 1) % groesse == out_index) {
             try {
                 wait();
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
         }
         fifo[in_index] = wert;
-        if (in_index == groesse -1) in_index = 0;
-                               else in_index++;
+        if (in_index == groesse - 1) in_index = 0;
+        else in_index++;
         notifyAll();
     }
 }

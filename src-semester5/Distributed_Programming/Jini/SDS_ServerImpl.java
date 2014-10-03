@@ -1,67 +1,71 @@
-
-import java.io.*;
-import java.rmi.*;
-import java.rmi.server.*;
-
-import net.jini.lease.LeaseRenewalManager;
-import net.jini.lookup.*;
 import net.jini.core.lookup.*;
 import net.jini.discovery.*;
+import net.jini.lease.LeaseRenewalManager;
+import net.jini.lookup.*;
 
-public class SDS_ServerImpl extends UnicastRemoteObject 
-                            implements SDS_Server, ServiceIDListener
-{
-   public SDS_ServerImpl() throws RemoteException {}
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.rmi.RMISecurityManager;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-   public void serviceIDNotify(ServiceID id) {   
-      System.out.println("Service-ID: "+id);    
-   }
+public class SDS_ServerImpl extends UnicastRemoteObject
+        implements SDS_Server, ServiceIDListener {
+    public SDS_ServerImpl() throws RemoteException {
+    }
 
-   public Reply investigate(String suchname) {
+    public void serviceIDNotify(ServiceID id) {
+        System.out.println("Service-ID: " + id);
+    }
 
-      int result = -1;
-      SDS sds;
-      FileInputStream fis = null;
-      ObjectInputStream ois = null;
-      Reply reply = null;
+    public Reply investigate(String suchname) {
 
-      System.out.println("Methode investigate aufgerufen, Parameter: " + suchname);
-      String filename = "kundendatei.txt";
-      try {
-         fis = new FileInputStream(filename);
-         ois = new ObjectInputStream(fis);
-         while(true) {
-            sds = (SDS)ois.readObject();
-            System.out.println("Ausgelesener Name: " + sds.name);
-            if ((sds.name).equals(suchname)) {
-               ois.close(); fis.close();
-               System.out.println("Name " + suchname + " gefunden");
-               reply = new Reply(Reply.FOUND, sds.name, sds.vorname,
-                                 sds.personalnummer, sds.wohnort);
-               break;
-            } 
-         };
-      } catch(Exception e) {
-         System.out.println("Suchname " + suchname + " nicht gefunden");
-         reply = new Reply();
-      }            
+        int result = -1;
+        SDS sds;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        Reply reply = null;
 
-      System.out.println();
-      return reply;
-   }
+        System.out.println("Methode investigate aufgerufen, Parameter: " + suchname);
+        String filename = "kundendatei.txt";
+        try {
+            fis = new FileInputStream(filename);
+            ois = new ObjectInputStream(fis);
+            while (true) {
+                sds = (SDS) ois.readObject();
+                System.out.println("Ausgelesener Name: " + sds.name);
+                if ((sds.name).equals(suchname)) {
+                    ois.close();
+                    fis.close();
+                    System.out.println("Name " + suchname + " gefunden");
+                    reply = new Reply(Reply.FOUND, sds.name, sds.vorname,
+                            sds.personalnummer, sds.wohnort);
+                    break;
+                }
+            }
+            ;
+        } catch (Exception e) {
+            System.out.println("Suchname " + suchname + " nicht gefunden");
+            reply = new Reply();
+        }
 
-   public static void main(String args[])
-   {
-      String[] groups = {"SDS_app"};
+        System.out.println();
+        return reply;
+    }
 
-      try {
-         System.setSecurityManager(new RMISecurityManager());
-         SDS_ServerImpl server = new SDS_ServerImpl();
-         LookupDiscoveryManager ldm = new LookupDiscoveryManager(groups, null, null);
-         JoinManager manager = new JoinManager(server, null, server, ldm,                             
-                                               new LeaseRenewalManager());
-         System.out.println("SDS_Server erwartet Anfragen");
-      } catch (Exception e) { e.printStackTrace(); }
-   }
+    public static void main(String args[]) {
+        String[] groups = {"SDS_app"};
+
+        try {
+            System.setSecurityManager(new RMISecurityManager());
+            SDS_ServerImpl server = new SDS_ServerImpl();
+            LookupDiscoveryManager ldm = new LookupDiscoveryManager(groups, null, null);
+            JoinManager manager = new JoinManager(server, null, server, ldm,
+                    new LeaseRenewalManager());
+            System.out.println("SDS_Server erwartet Anfragen");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }  // SDS_ServerImpl

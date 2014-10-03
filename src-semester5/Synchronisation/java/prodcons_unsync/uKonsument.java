@@ -15,12 +15,13 @@ class uKonsument extends Thread {
     public void run() {
         int temp;
 
-        for (int i = 0; i < (4*num_prod); i++) {
+        for (int i = 0; i < (4 * num_prod); i++) {
             temp = fifo.auslesen();
             System.out.println("Konsument " + zaehler + " hat ausgelesen: " + temp);
             try {
-                sleep((int)(Math.random() * 100));
-            } catch (InterruptedException e) {}
+                sleep((int) (Math.random() * 100));
+            } catch (InterruptedException e) {
+            }
         }
     }
 }

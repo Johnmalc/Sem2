@@ -30,10 +30,8 @@ public class QueueInfo {
         while (e.hasMoreElements()) {
             cnt++;
             message = (Message) e.nextElement();
-            TextMessage textmessage = (TextMessage) message;
 
             System.out.print(cnt + ".");
-            System.out.println("\tMessage Content: " + textmessage.getText());
             System.out.println("\tMessageID: " + message.getJMSMessageID());
             System.out.println("\tTimestamp: " +
                     new Date(message.getJMSTimestamp()));

@@ -1,4 +1,3 @@
-
 package bookservice;
 
 import java.rmi.Remote;

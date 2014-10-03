@@ -1,68 +1,53 @@
-
-class Table
-{
+class Table {
     private boolean[] forkUsed;
 
-    private int left(int i)
-    {
+    private int left(int i) {
         return i;
     }
 
-    private int right(int i)
-    {
-        if(i + 1 < forkUsed.length)
+    private int right(int i) {
+        if (i + 1 < forkUsed.length)
             return i + 1;
         else
             return 0;
     }
 
-    public Table(int number)
-    {
+    public Table(int number) {
         forkUsed = new boolean[number];
-        for(int i = 0; i < forkUsed.length; i++)
+        for (int i = 0; i < forkUsed.length; i++)
             forkUsed[i] = false;
     }
 
-    public synchronized void takeFork(int number)
-    {
-        while(forkUsed[left(number)] || forkUsed[right(number)])
-        {
-            try
-            {
+    public synchronized void takeFork(int number) {
+        while (forkUsed[left(number)] || forkUsed[right(number)]) {
+            try {
                 wait();
-            }
-            catch(InterruptedException e)
-            {
+            } catch (InterruptedException e) {
             }
         }
         forkUsed[left(number)] = true;
         forkUsed[right(number)] = true;
     }
 
-    public synchronized void putFork(int number)
-    {
+    public synchronized void putFork(int number) {
         forkUsed[left(number)] = false;
         forkUsed[right(number)] = false;
         notifyAll();
     }
 }
 
-class Philosopher extends Thread
-{
+class Philosopher extends Thread {
     private Table table;
     private int number;
 
-    public Philosopher(Table table, int number)
-    {
+    public Philosopher(Table table, int number) {
         this.table = table;
         this.number = number;
         start();
     }
 
-    public void run()
-    {
-        while(true)
-        {
+    public void run() {
+        while (true) {
             think(number);
             table.takeFork(number);
             eat(number);
@@ -70,40 +55,30 @@ class Philosopher extends Thread
         }
     }
 
-    private void think(int number)
-    {
+    private void think(int number) {
         System.out.println("Philosopher " + number + " is thinking");
-        try
-        {
+        try {
             sleep((int) (Math.random() * 5000));
-        }
-        catch(InterruptedException e)
-        {
+        } catch (InterruptedException e) {
         }
     }
 
-    private void eat(int number)
-    {
+    private void eat(int number) {
         System.out.println("Philosopher " + number + " starts eating");
-        try
-        {
+        try {
             sleep((int) (Math.random() * 5000));
-        }
-        catch(InterruptedException e)
-        {
+        } catch (InterruptedException e) {
         }
         System.out.println("Philosopher " + number + " stops eating");
     }
 }
 
-public class Philosophers
-{
+public class Philosophers {
     private static final int NUMBER = 5;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Table table = new Table(NUMBER);
-        for(int i = 0; i < NUMBER; i++)
+        for (int i = 0; i < NUMBER; i++)
             new Philosopher(table, i);
     }
 }

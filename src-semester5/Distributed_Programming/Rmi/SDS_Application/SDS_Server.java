@@ -1,9 +1,8 @@
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
-import java.rmi.*;
+public interface SDS_Server extends Remote {
 
-public interface SDS_Server extends Remote 
-{
-
-  public Reply investigate(String suchname) throws RemoteException;
+    public Reply investigate(String suchname) throws RemoteException;
 
 } // SDS_Server

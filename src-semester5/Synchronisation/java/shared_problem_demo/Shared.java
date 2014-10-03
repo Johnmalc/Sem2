@@ -1,13 +1,13 @@
 /* Datei Shared.java                      E. Ammann    */
 /* Klasse fuer eine Counter-Variable (, auf die        */
 /*  mehrere Threads unsynchronisiert zugreifen)        */
- 
+
 class Shared {
     private int counter;
 
     // Konstruktormethode dieser Klasse
     Shared(int anfangswert) {
-       counter = anfangswert;
+        counter = anfangswert;
     }
 
     // Counter - Wert veraendern

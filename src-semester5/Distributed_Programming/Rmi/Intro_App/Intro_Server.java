@@ -1,18 +1,12 @@
+import java.rmi.Naming;
 
-import java.rmi.*;
-
-public class Intro_Server
-{
-    public static void main(String args[])
-    {
-        try
-        {
+public class Intro_Server {
+    public static void main(String args[]) {
+        try {
             CounterImpl myCounter = new CounterImpl();
             Naming.rebind("Counter", myCounter);
             System.out.println("Server started");
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Exception: " + e.getMessage());
         }
     }

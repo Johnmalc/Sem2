@@ -7,13 +7,13 @@ class Actor extends Thread {
 
     public Actor(Shared shared, int delta) {
         this.shared = shared;
-        this.delta  = delta;
+        this.delta = delta;
     }
 
     public void run() {
         for (int i = 0; i < 1000; i++) {
-           shared.change_counter(delta);
-           yield();
+            shared.change_counter(delta);
+            yield();
         }
     }
 }
