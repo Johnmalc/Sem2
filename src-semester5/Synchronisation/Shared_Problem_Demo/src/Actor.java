@@ -1,6 +1,7 @@
 /* Datei Actor.java                  E.Ammann    */
 /* Klasse fuer die Actor-Threads                 */
 
+
 class Actor extends Thread {
     private Shared shared;
     private int delta;
@@ -13,6 +14,7 @@ class Actor extends Thread {
     public void run() {
         for (int i = 0; i < 1000; i++) {
             shared.change_counter(delta);
+            System.out.println(shared.get_counter());
             yield();
         }
     }

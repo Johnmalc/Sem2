@@ -1,6 +1,7 @@
 /* Datei Actor_sync.java             E.Ammann    */
 /* Klasse fuer die Actor-Threads                 */
 
+
 class Actor_sync extends Thread {
     private Shared_sync shared;
     private int delta;

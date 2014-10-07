@@ -7,7 +7,7 @@ public class StopThread_with_Interrupt extends Thread {
         StopThread_with_Interrupt st = new StopThread_with_Interrupt();
 
         try {
-            sleep(7000);
+            sleep(6000);
         } catch (InterruptedException e) {
         }
 

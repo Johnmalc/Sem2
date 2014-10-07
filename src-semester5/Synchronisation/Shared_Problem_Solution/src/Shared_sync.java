@@ -2,6 +2,7 @@
 /* Klasse fuer eine Counter-Variable (, auf die        */
 /*  mehrere Threads zugreifen)                         */
 
+
 class Shared_sync {
     private int counter;
 

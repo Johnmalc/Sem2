@@ -2,6 +2,7 @@
 /* Klasse fuer eine Counter-Variable (, auf die        */
 /*  mehrere Threads unsynchronisiert zugreifen)        */
 
+
 class Shared {
     private int counter;
 

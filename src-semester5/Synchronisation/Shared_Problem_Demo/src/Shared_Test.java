@@ -2,6 +2,7 @@
 /* Demo-Anwendung zum Synchronisationsproblem                 */
 /* Paramenter:  - Zahl von Threads                            */
 
+
 class Shared_Test {
     private final static int ANFANGSWERT = 1000;
 
@@ -21,10 +22,10 @@ class Shared_Test {
             (new Actor(shared, -1)).start();
         }
 
-        try {
-            Thread.sleep((int) 20000);
+        /*try {
+            Thread.sleep(20000);
         } catch (InterruptedException e) {
-        }
+        }*/
         System.out.println("Endwert: " + shared.get_counter());
     }
 }
