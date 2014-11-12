@@ -84,9 +84,11 @@ public class EventSynchronization {
         for (int i = 0; i < sems.length; i++) {
             sems[i] = new Semaphore(0);
         }
-        new Thread_1(sems, "Thread_1");
-        new Thread_2(sems, "Thread_2");
-        new Thread_3(sems, "Thread_3");
         new Thread_4(sems, "Thread_4");
+        new Thread_1(sems, "Thread_1");
+        new Thread_3(sems, "Thread_3");
+        new Thread_2(sems, "Thread_2");
+
+
     }
 }
